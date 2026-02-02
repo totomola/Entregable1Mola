@@ -6,19 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pagina de Ecomers sobre Bijouterie Amatista">
     <title>Simulador de compra ecomers Amatista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <h1>Simulador de Compra</h1>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Amatista Tienda</a>
 
-    <p>
-        Este simulador permite al usuario seleccionar productos desde un listado,
-        agregarlos a un carrito y calcular el total de la compra utilizando
-        JavaScript. Toda la interacción se realiza mediante cuadros de diálogo
-        y la consola del navegador.
-    </p>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#productos">Mis productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="py-5">
 
+        <section id="productos" class="container">
+            <h2 class="text-center mb-4">Mis productos</h2>
+
+            <div class="row g-4">
+
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Aros</h5>
+                            <p class="card-text">$5000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Pulsera</h5>
+                            <p class="card-text">$6000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Collar</h5>
+                            <p class="card-text">$8000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Anillo</h5>
+                            <p class="card-text">$10000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Tobillera</h5>
+                            <p class="card-text">$7000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Aros + Pulsera</h5>
+                            <p class="card-text">$20000</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <footer id="contacto" class="bg-dark text-white py-4">
+        <div class="container text-center">
+
+            <h4 class="mb-3">Contacto</h4>
+
+            <p>
+                <i class="bi bi-instagram"></i>
+                <a href="https://www.instagram.com/amatistaam2025/" target="_blank"
+                    class="text-white text-decoration-none">
+                    @mitienda
+                </a>
+            </p>
+
+            <p>
+                <i class="bi bi-telephone"></i>
+                <a href="tel:+5491112345678" class="text-white text-decoration-none">
+                    +54 9 3585413954
+                </a>
+            </p>
+
+            <p>
+                <i class="bi bi-geo-alt"></i>
+                Juan XXIII, 112, Adelia María, Cba
+            </p>
+
+        </div>
+    </footer>
 
     <script src="js/index.js"></script>
 </body>
