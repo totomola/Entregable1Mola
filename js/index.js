@@ -19,6 +19,8 @@ function renderizarCarrito() {
   const lista = document.getElementById("lista-carrito");
   const totalSpan = document.getElementById("total");
 
+  if (!lista || !totalSpan) return;
+  
   lista.innerHTML = "";
 
   carrito.forEach(producto => {
