@@ -42,9 +42,18 @@ function activarCards() {
       carrito.push({ nombre, precio });
 
       renderizarCarrito();
+      actualizarContador();
       guardarEnStorage();
     });
   });
+}
+
+function actualizarContador() {
+  const contador = document.getElementById("contador-carrito");
+
+  if (contador) {
+    contador.textContent = carrito.length;
+  }
 }
 
 function guardarEnStorage() {
@@ -56,7 +65,9 @@ function cargarCarrito() {
 
   if (carritoGuardado) {
     carrito = JSON.parse(carritoGuardado);
+
     renderizarCarrito();
+    actualizarContador();
   }
 }
 
@@ -64,14 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   activarCards();
   cargarCarrito();
+  actualizarContador();
 
   const botonVaciar = document.getElementById("vaciar-carrito");
 
   if (botonVaciar) {
     botonVaciar.addEventListener("click", () => {
       carrito = [];
+
       guardarEnStorage();
       renderizarCarrito();
+      actualizarContador();
     });
   }
 
