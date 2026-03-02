@@ -11,67 +11,68 @@ const productos = [
 
 let carrito = [];
 
-// Paso 0: Muestra los productos disponibles
-function mostrarProductos() {
-  let mensaje = "Productos disponibles:\n";
-
-  for (let producto of productos) {
-    mensaje += `- ${producto.nombre} ($${producto.precio})\n`;
-  }
-
-  alert(mensaje);
-}
-
-// Paso 1: Agrega un producto al carrito
-function agregarAlCarrito() {
-  let nombreProducto = prompt(
-    "Ingresá el nombre del producto que querés comprar:"
-  );
-
-  if (!nombreProducto) {
-    alert("No ingresaste ningún producto");
-    return;
-  }
-
-  nombreProducto = nombreProducto.toLowerCase();
-
-  let productoEncontrado = productos.find(
-    producto => producto.nombre.toLowerCase() === nombreProducto
-  );
-
-  if (productoEncontrado) {
-    carrito.push(productoEncontrado);
-    alert(`${productoEncontrado.nombre} agregado al carrito`);
-  } else {
-    alert("Producto no encontrado. Revisá el nombre e intentá nuevamente.");
-  }
-}
-
-// Paso 2: Calcula el total de la compra
 function calcularTotal() {
-  let total = 0;
-
-  for (let producto of carrito) {
-    total += producto.precio;
-  }
-
-  return total;
+  return carrito.reduce((acc, producto) => acc + producto.precio, 0);
 }
 
-// PAso 4: Función principal del simulador, que permite finalizar o continuar comprando
-function iniciarSimulador() {
-  let continuar = true;
+function renderizarCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  const totalSpan = document.getElementById("total");
 
-  while (continuar) {
-    mostrarProductos();
-    agregarAlCarrito();
-    continuar = confirm("¿Querés agregar otro producto?");
-  }
+  lista.innerHTML = "";
 
-  let totalCompra = calcularTotal();
-  alert(`El total de tu compra es: $${totalCompra}`);
-  console.log("Carrito final:", carrito);
+  carrito.forEach(producto => {
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    li.textContent = `${producto.nombre} - $${producto.precio}`;
+    lista.appendChild(li);
+  });
+
+  totalSpan.textContent = calcularTotal();
 }
 
-// Inicio del simulador
-iniciarSimulador();
+function activarCards() {
+  const cards = document.querySelectorAll(".producto-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const nombre = card.dataset.nombre;
+      const precio = Number(card.dataset.precio);
+
+      carrito.push({ nombre, precio });
+
+      renderizarCarrito();
+      guardarEnStorage();
+    });
+  });
+}
+
+function guardarEnStorage() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function cargarCarrito() {
+  const carritoGuardado = localStorage.getItem("carrito");
+
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+    renderizarCarrito();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  activarCards();
+  cargarCarrito();
+
+  const botonVaciar = document.getElementById("vaciar-carrito");
+
+  if (botonVaciar) {
+    botonVaciar.addEventListener("click", () => {
+      carrito = [];
+      guardarEnStorage();
+      renderizarCarrito();
+    });
+  }
+
+});
