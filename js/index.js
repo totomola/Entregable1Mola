@@ -12,7 +12,9 @@ const productos = [
 let carrito = [];
 
 function calcularTotal() {
-  return carrito.reduce((acc, producto) => acc + producto.precio, 0);
+  return carrito.reduce((acc, producto) => {
+    return acc + (producto.precio * producto.cantidad);
+  }, 0);
 }
 
 function renderizarCarrito() {
@@ -26,26 +28,67 @@ function renderizarCarrito() {
   carrito.forEach((producto, index) => {
 
     const li = document.createElement("li");
-    li.classList.add("list-group-item", "d-flex", "align-items-center", "justify-content-between");
+    li.classList.add("list-group-item");
 
     li.innerHTML = `
-      <div class="d-flex align-items-center gap-3">
-        <img src="${producto.imagen}" width="60" height="60" style="object-fit:cover; border-radius:8px;">
-        <div>
-          <strong>${producto.nombre}</strong><br>
-          $${producto.precio}
+      <div class="d-flex align-items-center justify-content-between">
+        
+        <div class="d-flex align-items-center gap-3">
+          <img src="${producto.imagen}" width="60" height="60" 
+          style="object-fit:cover; border-radius:8px;">
+
+          <div>
+            <strong>${producto.nombre}</strong><br>
+            $${producto.precio} c/u
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          
+          <button class="btn btn-sm btn-outline-secondary" 
+            onclick="disminuirCantidad(${index})">-</button>
+
+          <span>${producto.cantidad}</span>
+
+          <button class="btn btn-sm btn-outline-secondary" 
+            onclick="aumentarCantidad(${index})">+</button>
+
+          <span class="ms-3">
+            $${producto.precio * producto.cantidad}
+          </span>
+
+          <button class="btn btn-sm btn-outline-danger ms-2" 
+            onclick="eliminarProducto(${index})">
+            <i class="bi bi-trash"></i>
+          </button>
+
         </div>
       </div>
-
-      <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${index})">
-        <i class="bi bi-trash"></i>
-      </button>
     `;
 
     lista.appendChild(li);
   });
 
   totalSpan.textContent = calcularTotal();
+}
+
+function aumentarCantidad(index) {
+  carrito[index].cantidad++;
+  guardarEnStorage();
+  renderizarCarrito();
+  actualizarContador();
+}
+
+function disminuirCantidad(index) {
+  if (carrito[index].cantidad > 1) {
+    carrito[index].cantidad--;
+  } else {
+    carrito.splice(index, 1);
+  }
+
+  guardarEnStorage();
+  renderizarCarrito();
+  actualizarContador();
 }
 
 function eliminarProducto(index) {
@@ -60,25 +103,36 @@ function activarCards() {
 
   cards.forEach(card => {
     card.addEventListener("click", () => {
+
       const nombre = card.dataset.nombre;
       const precio = Number(card.dataset.precio);
       const imagen = card.querySelector("img").src;
 
-      carrito.push({ nombre, precio, imagen });
+      const productoExistente = carrito.find(p => p.nombre === nombre);
 
-      renderizarCarrito();
-      actualizarContador();
+      if (productoExistente) {
+        productoExistente.cantidad++;
+      } else {
+        carrito.push({
+          nombre,
+          precio,
+          imagen,
+          cantidad: 1
+        });
+      }
+
       guardarEnStorage();
+      actualizarContador();
     });
   });
 }
 
 function actualizarContador() {
   const contador = document.getElementById("contador-carrito");
+  if (!contador) return;
 
-  if (contador) {
-    contador.textContent = carrito.length;
-  }
+  const totalCantidad = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+  contador.textContent = totalCantidad;
 }
 
 function guardarEnStorage() {
@@ -94,9 +148,9 @@ function cargarCarrito() {
     renderizarCarrito();
     actualizarContador();
   }
-}
+  }
 
-document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
 
   activarCards();
   cargarCarrito();
@@ -116,26 +170,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const botonComprar = document.getElementById("comprar");
 
-if (botonComprar) {
+  if (botonComprar) {
   botonComprar.addEventListener("click", () => {
 
-    if (carrito.length === 0) {
-      alert("Tu carrito está vacío");
-      return;
-    }
+    if (carrito.length === 0) return;
+
+    const modal = new bootstrap.Modal(document.getElementById("modalCompra"));
+    modal.show();
+  });
+  }
+    
+  const confirmarBtn = document.getElementById("confirmarCompra");
+
+  if (confirmarBtn) {
+  confirmarBtn.addEventListener("click", () => {
 
     carrito = [];
     guardarEnStorage();
     renderizarCarrito();
     actualizarContador();
 
+    const modal = bootstrap.Modal.getInstance(
+      document.getElementById("modalCompra")
+    );
+    modal.hide();
+
     const mensaje = document.getElementById("mensaje-compra");
     mensaje.innerHTML = `
-      <div class="alert alert-success">
-        ¡El equipo Amatista agradece por tu compra! Volve cuando quieras.
+      <div class="alert alert-success mt-3">
+      ¡El equipo Amatista te agradece por tu compra! Volve cuando quieras.
       </div>
     `;
   });
-}
+  }
 
 });

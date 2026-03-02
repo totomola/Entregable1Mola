@@ -26,17 +26,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#productos">Mis productos</a>
                         </li>
-                        <li class="nav-item ms-3">
-                            <a href="pages/carrito.html" class="nav-link position-relative">
-                                <i class="bi bi-cart3 fs-5"></i>
-
-                                <!-- Badge contador -->
-                                <span id="contador-carrito"
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    0
-                                </span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">Contacto</a>
                         </li>
@@ -71,6 +60,31 @@
 
 
     <script src="../js/index.js"></script>
+    <div class="modal fade" id="modalCompra" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    ¿Deseas finalizar la compra?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-success" id="confirmarCompra">
+                        Confirmar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
