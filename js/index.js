@@ -20,17 +20,39 @@ function renderizarCarrito() {
   const totalSpan = document.getElementById("total");
 
   if (!lista || !totalSpan) return;
-  
+
   lista.innerHTML = "";
 
-  carrito.forEach(producto => {
+  carrito.forEach((producto, index) => {
+
     const li = document.createElement("li");
-    li.classList.add("list-group-item");
-    li.textContent = `${producto.nombre} - $${producto.precio}`;
+    li.classList.add("list-group-item", "d-flex", "align-items-center", "justify-content-between");
+
+    li.innerHTML = `
+      <div class="d-flex align-items-center gap-3">
+        <img src="${producto.imagen}" width="60" height="60" style="object-fit:cover; border-radius:8px;">
+        <div>
+          <strong>${producto.nombre}</strong><br>
+          $${producto.precio}
+        </div>
+      </div>
+
+      <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${index})">
+        <i class="bi bi-trash"></i>
+      </button>
+    `;
+
     lista.appendChild(li);
   });
 
   totalSpan.textContent = calcularTotal();
+}
+
+function eliminarProducto(index) {
+  carrito.splice(index, 1);
+  guardarEnStorage();
+  renderizarCarrito();
+  actualizarContador();
 }
 
 function activarCards() {
@@ -40,8 +62,9 @@ function activarCards() {
     card.addEventListener("click", () => {
       const nombre = card.dataset.nombre;
       const precio = Number(card.dataset.precio);
+      const imagen = card.querySelector("img").src;
 
-      carrito.push({ nombre, precio });
+      carrito.push({ nombre, precio, imagen });
 
       renderizarCarrito();
       actualizarContador();
@@ -90,5 +113,29 @@ document.addEventListener("DOMContentLoaded", () => {
       actualizarContador();
     });
   }
+
+  const botonComprar = document.getElementById("comprar");
+
+if (botonComprar) {
+  botonComprar.addEventListener("click", () => {
+
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío");
+      return;
+    }
+
+    carrito = [];
+    guardarEnStorage();
+    renderizarCarrito();
+    actualizarContador();
+
+    const mensaje = document.getElementById("mensaje-compra");
+    mensaje.innerHTML = `
+      <div class="alert alert-success">
+        ¡El equipo Amatista agradece por tu compra! Volve cuando quieras.
+      </div>
+    `;
+  });
+}
 
 });
