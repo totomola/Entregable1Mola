@@ -1,4 +1,32 @@
+
+/*paleta de colores*/
+/*principal: #9A7F8F*/
+
+
+
 .img-producto {
     height: 13.75rem; 
     object-fit: cover;
+}
+
+/*https://forms.gle/R8595YDqY6MW7pfn8 // formulario de programación.
+
+1156385296 javier Gimenez*/
+
+.bg-pink-index {
+    background-image: url(/assets/fondos/bg_main_index.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-pink-pages {
+    background-image: url(/assets/fondos/bg_main_pages.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-footer {
+    background-color: #9A7F8F;
 }
