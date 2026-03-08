@@ -16,11 +16,26 @@
     object-fit: cover;
 }
 
+/*Index*/
 .bg-pink-index {
     background-image: url(/assets/fondos/bg_main_index.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.descuento-index {
+    width: 100%;
+    height: 60vh;
+    background-color: #9A7F8F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descuento-index h2:hover {
+    transition: transform 0.5s ease;
+    transform: scale(1.10);
 }
 
 .bg-pink-pages {
@@ -30,6 +45,7 @@
     background-repeat: no-repeat;
 }
 
+/*Footer*/
 .bg-footer {
     background-color: #9A7F8F;
 }
