@@ -1,17 +1,20 @@
 
 /*paleta de colores*/
-/*principal: #9A7F8F*/
+/*Footer: #9A7F8F*/
 
+/*Barra navegación*/
+.navbar-nav .nav-link {
+  transition: color 0.3s ease;
+}
 
+.navbar-nav .nav-link:hover {
+  color: #9A7F8F;
+}
 
 .img-producto {
     height: 13.75rem; 
     object-fit: cover;
 }
-
-/*https://forms.gle/R8595YDqY6MW7pfn8 // formulario de programación.
-
-1156385296 javier Gimenez*/
 
 .bg-pink-index {
     background-image: url(/assets/fondos/bg_main_index.jpg);
