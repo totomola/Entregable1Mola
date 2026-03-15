@@ -1,4 +1,45 @@
 
+function irAPagina(pagina) {
+  window.location.href = pagina;
+}
+
+function activarNavegacion() {
+
+  const links = document.querySelectorAll("[data-link]");
+
+  links.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      const pagina = link.dataset.link;
+      irAPagina(pagina);
+
+    });
+
+  });
+
+}
+
+async function cargarComponentes() {
+
+  const navbar = await fetch("/components/navbar.html");
+  const footer = await fetch("/components/footer.html");
+
+  document.getElementById("navbar-container").innerHTML = await navbar.text();
+  document.getElementById("footer-container").innerHTML = await footer.text();
+
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+  await cargarComponentes();
+
+  activarRouter();
+
+  cargarPagina("/pages/home.html");
+
+});
+
 //Variables y constantes de Amatista Bijouterie
 const productos = [
   { id: 1, nombre: "Aros", precio: 5000 },
@@ -150,8 +191,9 @@ function cargarCarrito() {
   }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
+  activarNavegacion();
   activarCards();
   cargarCarrito();
   actualizarContador();
