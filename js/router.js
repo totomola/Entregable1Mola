@@ -1,13 +1,42 @@
 
 //activación de la página
 
-async function cargarPagina(pagina) {
+async function cargarPagina(ruta){
 
-  const respuesta = await fetch(pagina);
-  const html = await respuesta.text();
+  const app = document.getElementById("app");
 
-  document.getElementById("app").innerHTML = html;
+  app.classList.add("page-hidden");
 
+  const rutas = {
+    "/": "pages/home.html",
+    "/aros": "pages/aros.html",
+    "/collares": "pages/collares.html",
+    "/pulseras": "pages/pulseras.html",
+    "/tobilleras": "pages/tobilleras.html",
+    "/anillos": "pages/anillos.html",
+    "/combos": "pages/combos.html", 
+    "/carrito": "pages/carrito.html"
+  };
+  
+  const pagina = rutas[ruta] || "pages/home.html";
+  
+  app.classList.add("page-hidden");
+
+  const response = await fetch(pagina);
+  const html = await response.text();
+
+
+  setTimeout(() => {
+
+    app.innerHTML = html;
+
+    activarCards();
+    activarNavegacion();
+
+    app.classList.remove("page-hidden");
+    app.classList.add("page-visible");
+
+  },150);
 }
 
 function activarRouter() {

@@ -1,6 +1,6 @@
-
 function irAPagina(pagina) {
-  window.location.href = pagina;
+  history.pushState(null, null, pagina);
+  cargarPagina(pagina);
 }
 
 function activarNavegacion() {
@@ -20,25 +20,43 @@ function activarNavegacion() {
 
 }
 
-async function cargarComponentes() {
-
-  const navbar = await fetch("/components/navbar.html");
-  const footer = await fetch("/components/footer.html");
-
-  document.getElementById("navbar-container").innerHTML = await navbar.text();
-  document.getElementById("footer-container").innerHTML = await footer.text();
-
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
 
   await cargarComponentes();
 
   activarRouter();
 
-  cargarPagina("/pages/home.html");
+  const rutaInicial = window.location.pathname;
+
+  if (rutaInicial === "/" || rutaInicial === "/index.html") {
+    cargarPagina("pages/home.html");
+  } else {
+    cargarPagina(rutaInicial);
+  }
 
 });
+
+window.addEventListener("popstate", () => {
+
+  const ruta = window.location.pathname;
+
+  if (ruta === "/" || ruta === "/index.html") {
+    cargarPagina("pages/home.html");
+  } else {
+    cargarPagina(ruta);
+  }
+
+});
+
+async function cargarComponentes() {
+
+  const navbar = await fetch("componentes/navbar.html");
+  const footer = await fetch("componentes/footer.html");
+
+  document.getElementById("navbar-container").innerHTML = await navbar.text();
+  document.getElementById("footer-container").innerHTML = await footer.text();
+
+}
 
 //Variables y constantes de Amatista Bijouterie
 const productos = [
@@ -143,7 +161,11 @@ function activarCards() {
   const cards = document.querySelectorAll(".producto-card");
 
   cards.forEach(card => {
-    card.addEventListener("click", () => {
+
+    const btnComprar = card.querySelector(".btn-comprar");
+    
+    btnComprar.addEventListener("click", (e) => {
+      e.stopPropagation();
 
       const nombre = card.dataset.nombre;
       const precio = Number(card.dataset.precio);
@@ -167,6 +189,22 @@ function activarCards() {
     });
   });
 }
+
+document.addEventListener("click", function(e){
+
+  if(e.target.closest(".btn-ver")){
+
+    const card = e.target.closest(".producto-card");
+    const img = card.querySelector("img").src;
+
+    const modalImg = document.getElementById("imagenModal");
+    modalImg.src = img;
+
+    const modal = new bootstrap.Modal(document.getElementById("modalImagen"));
+    modal.show();
+  }
+
+});
 
 function actualizarContador() {
   const contador = document.getElementById("contador-carrito");
