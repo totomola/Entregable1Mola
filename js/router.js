@@ -1,20 +1,19 @@
+import { renderizarProductos, irAPagina, activarCards, activarNavegacion, cargarCarrito, renderizarCarrito, } from "./index.js";
+import { productos } from "./productos.js";
 
 //activación de la página
-
-async function cargarPagina(ruta){
+export async function cargarPagina(ruta){
 
   const app = document.getElementById("app");
 
-  app.classList.add("page-hidden");
-
   const rutas = {
-    "/": "pages/home.html",
-    "/aros": "pages/aros.html",
-    "/collares": "pages/collares.html",
-    "/pulseras": "pages/pulseras.html",
-    "/tobilleras": "pages/tobilleras.html",
-    "/anillos": "pages/anillos.html",
-    "/combos": "pages/combos.html", 
+    "/": "/pages/home.html",
+    "/aros": "/pages/aros.html",
+    "/collares": "/pages/collares.html",
+    "/pulseras": "/pages/pulseras.html",
+    "/tobilleras": "/pages/tobilleras.html",
+    "/anillos": "/pages/anillos.html",
+    "/combos": "/pages/combos.html", 
     "/carrito": "pages/carrito.html"
   };
   
@@ -30,6 +29,15 @@ async function cargarPagina(ruta){
 
     app.innerHTML = html;
 
+    if (ruta === "/destacados") renderizarProductos("home");
+    if (ruta === "/anillos") renderizarProductos("anillos");
+    if (ruta === "/aros") renderizarProductos("aros");
+    if (ruta === "/collares") renderizarProductos("collares"); 
+    if (ruta === "/pulseras") renderizarProductos("pulseras");
+    if (ruta === "/tobilleras") renderizarProductos("tobilleras");
+    if (ruta === "/combos") renderizarProductos("combos");
+    if (ruta === "/carrito") renderizarProductos("carrito");
+
     activarCards();
     activarNavegacion();
 
@@ -39,7 +47,7 @@ async function cargarPagina(ruta){
   },150);
 }
 
-function activarRouter() {
+export function activarRouter() {
 
   document.addEventListener("click", function(e){
 
@@ -51,7 +59,7 @@ function activarRouter() {
 
     const pagina = link.dataset.link;
 
-    cargarPagina(pagina);
+    irAPagina(pagina);
 
   });
 

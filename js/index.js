@@ -1,9 +1,50 @@
-function irAPagina(pagina) {
+import { productos } from "./productos.js";
+import { cargarPagina, activarRouter } from "./router.js";
+
+export function renderizarProductos(categoria) {
+  const contenedor = document.getElementById("contenedor-productos");
+
+  if (!contenedor) return;
+
+  const filtrados = productos.filter(p => p.categoria === categoria);
+
+  contenedor.innerHTML = filtrados.map(p => `
+    <div class="col-md-4">
+      <div class="card producto-card h-100 text-center p-3"
+           data-nombre="${p.nombre}"
+           data-precio="${p.precio}">
+
+        <div class="card-img-wrapper">
+          <img src="${p.imagen}" class="card-img-top img-producto">
+
+          <div class="card-overlay">
+            <button class="btn btn-light btn-sm btn-ver">
+              <i class="bi bi-eye"></i>
+            </button>
+            <button class="btn btn-dark btn-sm btn-comprar">
+              <i class="bi bi-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h5 class="fw-bold">${p.nombre}</h5>
+          <p class="precio">$${p.precio}</p>
+        </div>
+
+      </div>
+    </div>
+  `).join("");
+
+  activarCards();
+}
+
+export function irAPagina(pagina) {
   history.pushState(null, null, pagina);
   cargarPagina(pagina);
 }
 
-function activarNavegacion() {
+export function activarNavegacion() {
 
   const links = document.querySelectorAll("[data-link]");
 
@@ -20,28 +61,12 @@ function activarNavegacion() {
 
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-
-  await cargarComponentes();
-
-  activarRouter();
-
-  const rutaInicial = window.location.pathname;
-
-  if (rutaInicial === "/" || rutaInicial === "/index.html") {
-    cargarPagina("pages/home.html");
-  } else {
-    cargarPagina(rutaInicial);
-  }
-
-});
-
 window.addEventListener("popstate", () => {
 
   const ruta = window.location.pathname;
 
   if (ruta === "/" || ruta === "/index.html") {
-    cargarPagina("pages/home.html");
+    cargarPagina("/");
   } else {
     cargarPagina(ruta);
   }
@@ -50,23 +75,13 @@ window.addEventListener("popstate", () => {
 
 async function cargarComponentes() {
 
-  const navbar = await fetch("componentes/navbar.html");
-  const footer = await fetch("componentes/footer.html");
+  const navbar = await fetch("/componentes/navbar.html");
+  const footer = await fetch("/componentes/footer.html");
 
   document.getElementById("navbar-container").innerHTML = await navbar.text();
   document.getElementById("footer-container").innerHTML = await footer.text();
 
 }
-
-//Variables y constantes de Amatista Bijouterie
-const productos = [
-  { id: 1, nombre: "Aros", precio: 5000 },
-  { id: 2, nombre: "Pulsera", precio: 6000 },
-  { id: 3, nombre: "Collar", precio: 8000 },
-  { id: 4, nombre: "Anillo", precio: 10000 },
-  { id: 5, nombre: "Tobillera", precio: 7000 },
-  { id: 6, nombre: "Aros + Pulsera", precio: 20000 }
-];
 
 let carrito = [];
 
@@ -76,7 +91,7 @@ function calcularTotal() {
   }, 0);
 }
 
-function renderizarCarrito() {
+ export function renderizarCarrito() {
   const lista = document.getElementById("lista-carrito");
   const totalSpan = document.getElementById("total");
 
@@ -157,7 +172,7 @@ function eliminarProducto(index) {
   actualizarContador();
 }
 
-function activarCards() {
+export function activarCards() {
   const cards = document.querySelectorAll(".producto-card");
 
   cards.forEach(card => {
@@ -218,7 +233,7 @@ function guardarEnStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function cargarCarrito() {
+export function cargarCarrito() {
   const carritoGuardado = localStorage.getItem("carrito");
 
   if (carritoGuardado) {
@@ -227,7 +242,28 @@ function cargarCarrito() {
     renderizarCarrito();
     actualizarContador();
   }
-  }
+}
+
+window.aumentarCantidad = aumentarCantidad;
+window.disminuirCantidad = disminuirCantidad;
+window.eliminarProducto = eliminarProducto;
+window.cargarCarrito = cargarCarrito;
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+  await cargarComponentes();
+
+  activarRouter();
+
+  const rutaInicial = window.location.pathname;
+
+  if (rutaInicial === "/" || rutaInicial === "/index.html") {
+  cargarPagina("/");
+} else {
+  cargarPagina(rutaInicial);
+}
+
+  });
 
 document.addEventListener("DOMContentLoaded", () => {
 
