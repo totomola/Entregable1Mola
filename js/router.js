@@ -6,8 +6,11 @@ export async function cargarPagina(ruta){
 
   const app = document.getElementById("app");
 
+  if (ruta === "/") return;
+
   const rutas = {
-    "/": "/pages/home.html",
+    "/": null,
+    "/destacados": "/pages/destacados.html",
     "/aros": "/pages/aros.html",
     "/collares": "/pages/collares.html",
     "/pulseras": "/pages/pulseras.html",
@@ -17,7 +20,7 @@ export async function cargarPagina(ruta){
     "/carrito": "pages/carrito.html"
   };
   
-  const pagina = rutas[ruta] || "pages/home.html";
+  const pagina = rutas[ruta] || "pages/index.html";
   
   app.classList.add("page-hidden");
 
@@ -29,7 +32,7 @@ export async function cargarPagina(ruta){
 
     app.innerHTML = html;
 
-    if (ruta === "/") renderizarProductos("home");
+    if (ruta === "/destacados") renderizarProductos("destacados");
     if (ruta === "/anillos") renderizarProductos("anillos");
     if (ruta === "/aros") renderizarProductos("aros");
     if (ruta === "/collares") renderizarProductos("collares"); 

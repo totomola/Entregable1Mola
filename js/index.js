@@ -36,7 +36,6 @@ export function renderizarProductos(categoria) {
     </div>
   `).join("");
 
-  activarCards();
 }
 
 export function irAPagina(pagina) {
