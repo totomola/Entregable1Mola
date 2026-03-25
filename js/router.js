@@ -29,17 +29,39 @@ export async function cargarPagina(ruta){
 
     app.innerHTML = html;
 
-    if (ruta === "/destacados") renderizarProductos("home");
+    if (ruta === "/") renderizarProductos("home");
     if (ruta === "/anillos") renderizarProductos("anillos");
     if (ruta === "/aros") renderizarProductos("aros");
     if (ruta === "/collares") renderizarProductos("collares"); 
     if (ruta === "/pulseras") renderizarProductos("pulseras");
     if (ruta === "/tobilleras") renderizarProductos("tobilleras");
     if (ruta === "/combos") renderizarProductos("combos");
-    if (ruta === "/carrito") renderizarProductos("carrito");
+    if (ruta === "/carrito") {
+      cargarCarrito();
+    };
 
     activarCards();
     activarNavegacion();
+
+  const botonVaciar = document.getElementById("vaciar-carrito");
+  if (botonVaciar) {
+    botonVaciar.addEventListener("click", () => {
+      carrito = [];
+      guardarEnStorage();
+      renderizarCarrito();
+      actualizarContador();
+    });
+  }
+    
+    const botonComprar = document.getElementById("comprar");
+  if (botonComprar) {
+    botonComprar.addEventListener("click", () => {
+      if (carrito.length === 0) return;
+      const modal = new bootstrap.Modal(document.getElementById("modalCompra"));
+      modal.show();
+    });
+  }
+
 
     app.classList.remove("page-hidden");
     app.classList.add("page-visible");

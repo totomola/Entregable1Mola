@@ -258,66 +258,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const rutaInicial = window.location.pathname;
 
   if (rutaInicial === "/" || rutaInicial === "/index.html") {
-  cargarPagina("/");
-} else {
-  cargarPagina(rutaInicial);
-}
+   await cargarPagina("/");
+  } else {
+   await cargarPagina(rutaInicial);
+  }
 
   });
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  activarNavegacion();
-  activarCards();
-  cargarCarrito();
-  actualizarContador();
-
-  const botonVaciar = document.getElementById("vaciar-carrito");
-
-  if (botonVaciar) {
-    botonVaciar.addEventListener("click", () => {
-      carrito = [];
-
-      guardarEnStorage();
-      renderizarCarrito();
-      actualizarContador();
-    });
-  }
-
-  const botonComprar = document.getElementById("comprar");
-
-  if (botonComprar) {
-  botonComprar.addEventListener("click", () => {
-
-    if (carrito.length === 0) return;
-
-    const modal = new bootstrap.Modal(document.getElementById("modalCompra"));
-    modal.show();
-  });
-  }
-    
-  const confirmarBtn = document.getElementById("confirmarCompra");
-
-  if (confirmarBtn) {
-  confirmarBtn.addEventListener("click", () => {
-
-    carrito = [];
-    guardarEnStorage();
-    renderizarCarrito();
-    actualizarContador();
-
-    const modal = bootstrap.Modal.getInstance(
-      document.getElementById("modalCompra")
-    );
-    modal.hide();
-
-    const mensaje = document.getElementById("mensaje-compra");
-    mensaje.innerHTML = `
-      <div class="alert alert-success mt-3">
-      ¡El equipo Amatista te agradece por tu compra! Volve cuando quieras.
-      </div>
-    `;
-  });
-  }
-
-});
