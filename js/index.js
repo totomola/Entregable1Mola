@@ -104,40 +104,43 @@ function calcularTotal() {
     li.classList.add("list-group-item");
 
     li.innerHTML = `
-      <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between bg-carrito" style="gap:1rem; ">
         
-        <div class="d-flex align-items-center gap-3">
-          <img src="${producto.imagen}" width="60" height="60" 
-          style="object-fit:cover; border-radius:8px;">
+        <div class="d-flex align-items-center ">
+          <img src="${producto.imagen}" 
+          style="width:10rem; height:10rem; object-fit:cover; border-radius: 0.1rem; ">
 
-          <div>
-            <strong>${producto.nombre}</strong><br>
-            $${producto.precio} c/u
+          <div class="ms-4" style="min-width: 10rem;">
+            <strong style="font-size: 1.25rem;">${producto.nombre}</strong><br>
+            <strong style="font-size: 2rem;">$${producto.precio} </strong> c/u
           </div>
         </div>
 
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center align-content-center gap-2">
           
-          <button class="btn btn-sm btn-outline-secondary" 
+          <button class="btn btn-sm btn-outline-dark" style="width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center;" 
             onclick="disminuirCantidad(${index})">-</button>
 
-          <span>${producto.cantidad}</span>
-
-          <button class="btn btn-sm btn-outline-secondary" 
+          <button class="btn btn-sm btn-outline-dark" style="width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center;"
             onclick="aumentarCantidad(${index})">+</button>
 
-          <span class="ms-3">
-            $${producto.precio * producto.cantidad}
-          </span>
-
-          <button class="btn btn-sm btn-outline-danger ms-2" 
+          <span class="font-weight-bold h4 m-1">${producto.cantidad}</span>
+          
+          <button class="btn btn-sm btn-outline-dark ms-2" style="width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center;"
             onclick="eliminarProducto(${index})">
             <i class="bi bi-trash"></i>
           </button>
 
+          <span class="ms-3 h2"><strong>
+            $${producto.precio * producto.cantidad}</strong>
+          </span>
+
         </div>
       </div>
     `;
+
+    li.style.marginBottom = "1rem";
+    li.style.backgroundColor = "#F3DFC3";
 
     lista.appendChild(li);
   });

@@ -169,6 +169,9 @@ main{
 .producto-card:hover::before {
   top: 100%;
 }
+.bg-carrito{
+  background-color: #F3DFC3;
+}
 
 /*Footer*/
 .bg-footer {
