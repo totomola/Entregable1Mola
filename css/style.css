@@ -108,21 +108,21 @@ main{
   text-align: center;
 }
 
-/* PRECIO */
+/* Precio */
 .precio {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
 }
 
-/* IMAGEN WRAPPER */
+/* Imagen Whapper */
 .card-img-wrapper {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
 }
 
-/* OVERLAY BOTONES */
+/* Overlay botones */
 .card-overlay {
   position: absolute;
   top: 0;
@@ -137,7 +137,7 @@ main{
   transition: opacity 0.3s ease;
 }
 
-/* APARECEN EN HOVER */
+/* Aparecen en hover - efectos */
 .producto-card:hover .card-overlay {
   opacity: 1;
 }
@@ -169,8 +169,16 @@ main{
 .producto-card:hover::before {
   top: 100%;
 }
+
 .bg-carrito{
   background-color: #F3DFC3;
+}
+
+#formularioPago{
+  background-color: #F3DFC3 !important;
+  border-width: 0.2rem !important;
+  border-color: #9A7F8F !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /*Footer*/

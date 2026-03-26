@@ -104,7 +104,7 @@ function calcularTotal() {
     li.classList.add("list-group-item");
 
     li.innerHTML = `
-      <div class="d-flex align-items-center justify-content-between bg-carrito" style="gap:1rem; ">
+      <div class="d-flex align-items-center justify-content-between bg-carrito" style="gap:1rem;">
         
         <div class="d-flex align-items-center ">
           <img src="${producto.imagen}" 
@@ -141,6 +141,9 @@ function calcularTotal() {
 
     li.style.marginBottom = "1rem";
     li.style.backgroundColor = "#F3DFC3";
+    li.style.borderWidth = "0.2rem";
+    li.style.borderColor = "#9A7F8F";
+    li.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
 
     lista.appendChild(li);
   });
@@ -250,6 +253,145 @@ window.aumentarCantidad = aumentarCantidad;
 window.disminuirCantidad = disminuirCantidad;
 window.eliminarProducto = eliminarProducto;
 window.cargarCarrito = cargarCarrito;
+
+export function mostrarFormularioPago() {
+  const carritoSection = document.getElementById("carrito");
+
+  if (!carritoSection) return;
+
+  // evitar duplicado
+  if (document.getElementById("form-pago")) return;
+
+  const formHTML = `
+    <div id="form-pago" class="mt-5 pb-5 container">
+      <h3 class="mb-4 text-center">Datos de pago</h3>
+
+      <form id="formularioPago" class="p-4 border rounded bg-light">
+
+        <div class="mb-3">
+          <label class="form-label">Titular de la tarjeta</label>
+          <input type="text" id="titular" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Número</label>
+          <input type="text" id="numero" class="form-control" maxlength="19" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Caducidad (MM/AA)</label>
+            <input type="text" id="caducidad" class="form-control" maxlength="5" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">CVV</label>
+            <input type="text" id="cvv" class="form-control" maxlength="3" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100 mt-3">
+          Pagar
+        </button>
+
+      </form>
+    </div>
+  `;
+
+  carritoSection.insertAdjacentHTML("afterend", formHTML);
+
+  activarValidacionesPago();
+}
+
+function activarValidacionesPago() {
+  const titular = document.getElementById("titular");
+  const numero = document.getElementById("numero");
+  const caducidad = document.getElementById("caducidad");
+  const cvv = document.getElementById("cvv");
+  const form = document.getElementById("formularioPago");
+
+  // SOLO LETRAS (titular)
+  titular.addEventListener("input", () => {
+    titular.value = titular.value.replace(/[^a-zA-Z\s]/g, "");
+  });
+
+  // TARJETA 16 NUMEROS + ESPACIADO
+  numero.addEventListener("input", () => {
+    let value = numero.value.replace(/\D/g, "").substring(0,16);
+    value = value.replace(/(.{4})/g, "$1 ").trim();
+    numero.value = value;
+  });
+
+  // CADUCIDAD MM/AA desde 04/26
+  caducidad.addEventListener("input", () => {
+    let value = caducidad.value.replace(/\D/g, "").substring(0,4);
+
+    if (value.length >= 3) {
+      value = value.substring(0,2) + "/" + value.substring(2);
+    }
+
+    caducidad.value = value;
+  });
+
+  // CVV solo 3 numeros
+  cvv.addEventListener("input", () => {
+    cvv.value = cvv.value.replace(/\D/g, "").substring(0,3);
+  });
+
+  // SUBMIT
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!validarFecha(caducidad.value)) {
+      alert("Fecha inválida (mínimo 04/26)");
+      return;
+    }
+
+    mostrarModalFinal();
+  });
+}
+
+function validarFecha(fecha) {
+  const [mes, anio] = fecha.split("/").map(Number);
+
+  if (!mes || !anio) return false;
+
+  if (mes < 1 || mes > 12) return false;
+
+  // mínimo abril 2026
+  if (anio < 26) return false;
+  if (anio === 26 && mes < 4) return false;
+
+  return true;
+}
+
+function mostrarModalFinal() {
+  const modalHTML = `
+    <div class="modal fade" id="modalFinal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content text-center p-4">
+
+          <h4>Gracias por tu compra</h4>
+          <p>Te desea Amatista 💜</p>
+
+          <button class="btn btn-dark mt-3" id="volverInicio">
+            Seguir comprando
+          </button>
+
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+  const modal = new bootstrap.Modal(document.getElementById("modalFinal"));
+  modal.show();
+
+  document.getElementById("volverInicio").addEventListener("click", () => {
+    window.location.href = "/index.html";
+  });
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
 

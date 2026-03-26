@@ -1,4 +1,4 @@
-import { renderizarProductos, irAPagina, activarCards, activarNavegacion, cargarCarrito, renderizarCarrito, } from "./index.js";
+import { renderizarProductos, irAPagina, activarCards, activarNavegacion, cargarCarrito, renderizarCarrito, mostrarFormularioPago } from "./index.js";
 import { productos } from "./productos.js";
 
 //activación de la página
@@ -65,6 +65,20 @@ export async function cargarPagina(ruta){
     });
   }
 
+    const confirmarBtn = document.getElementById("confirmarCompra");
+
+  if (confirmarBtn) {
+  confirmarBtn.addEventListener("click", () => {
+
+    const modal = bootstrap.Modal.getInstance(
+      document.getElementById("modalCompra")
+    );
+
+    modal.hide();
+
+    mostrarFormularioPago(); // 👈 acá se dispara el formulario
+  });
+  }
 
     app.classList.remove("page-hidden");
     app.classList.add("page-visible");
