@@ -74,8 +74,8 @@ window.addEventListener("popstate", () => {
 
 async function cargarComponentes() {
 
-  const navbar = await fetch("/componentes/navbar.html");
-  const footer = await fetch("/componentes/footer.html");
+  const navbar = await fetch("../componentes/navbar.html");
+  const footer = await fetch("../componentes/footer.html");
 
   document.getElementById("navbar-container").innerHTML = await navbar.text();
   document.getElementById("footer-container").innerHTML = await footer.text();
@@ -259,7 +259,6 @@ export function mostrarFormularioPago() {
 
   if (!carritoSection) return;
 
-  // evitar duplicado
   if (document.getElementById("form-pago")) return;
 
   const formHTML = `
@@ -310,19 +309,21 @@ function activarValidacionesPago() {
   const cvv = document.getElementById("cvv");
   const form = document.getElementById("formularioPago");
 
-  // SOLO LETRAS (titular)
+  titular.placeholder = "Tomas Mola";
+  numero.placeholder = "4500 1234 5678 9012";
+  caducidad.placeholder = "05/27";
+  cvv.placeholder = "123";
+
   titular.addEventListener("input", () => {
     titular.value = titular.value.replace(/[^a-zA-Z\s]/g, "");
   });
 
-  // TARJETA 16 NUMEROS + ESPACIADO
   numero.addEventListener("input", () => {
     let value = numero.value.replace(/\D/g, "").substring(0,16);
     value = value.replace(/(.{4})/g, "$1 ").trim();
     numero.value = value;
   });
 
-  // CADUCIDAD MM/AA desde 04/26
   caducidad.addEventListener("input", () => {
     let value = caducidad.value.replace(/\D/g, "").substring(0,4);
 
@@ -333,17 +334,20 @@ function activarValidacionesPago() {
     caducidad.value = value;
   });
 
-  // CVV solo 3 numeros
   cvv.addEventListener("input", () => {
     cvv.value = cvv.value.replace(/\D/g, "").substring(0,3);
   });
 
-  // SUBMIT
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (!validarFecha(caducidad.value)) {
-      alert("Fecha inválida (mínimo 04/26)");
+      Swal.fire({
+      icon: 'error',
+      title: 'Fecha inválida',
+      text: 'Debe ser posterior a 04/26',
+      confirmButtonText: 'Entendido'
+      });
       return;
     }
 
@@ -366,13 +370,14 @@ function validarFecha(fecha) {
 }
 
 function mostrarModalFinal() {
+
   const modalHTML = `
     <div class="modal fade" id="modalFinal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content text-center p-4">
 
           <h4>Gracias por tu compra</h4>
-          <p>Te desea Amatista 💜</p>
+          <p>Te desea Amatista </p>
 
           <button class="btn btn-dark mt-3" id="volverInicio">
             Seguir comprando
@@ -389,6 +394,10 @@ function mostrarModalFinal() {
   modal.show();
 
   document.getElementById("volverInicio").addEventListener("click", () => {
+
+    localStorage.removeItem("carrito");
+    carrito = [];
+
     window.location.href = "/index.html";
   });
 }
