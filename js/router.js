@@ -22,14 +22,14 @@ export async function cargarPagina(ruta){
 
   const rutas = {
     "/": null,
-    "/destacados": "/pages/destacados.html",
-    "/aros": "/pages/aros.html",
-    "/collares": "/pages/collares.html",
-    "/pulseras": "/pages/pulseras.html",
-    "/tobilleras": "/pages/tobilleras.html",
-    "/anillos": "/pages/anillos.html",
-    "/combos": "/pages/combos.html", 
-    "/carrito": "/pages/carrito.html"
+    "/destacados": "pages/destacados.html",
+    "/aros": "pages/aros.html",
+    "/collares": "pages/collares.html",
+    "/pulseras": "pages/pulseras.html",
+    "/tobilleras": "pages/tobilleras.html",
+    "/anillos": "pages/anillos.html",
+    "/combos": "pages/combos.html", 
+    "/carrito": "pages/carrito.html"
   };
   
   const pagina = rutas[ruta] || "/pages/index.html";
@@ -90,7 +90,7 @@ export async function cargarPagina(ruta){
 
     modal.hide();
 
-    mostrarFormularioPago(); // 👈 acá se dispara el formulario
+    mostrarFormularioPago();
   });
   }
 

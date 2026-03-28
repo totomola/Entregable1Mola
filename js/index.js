@@ -28,7 +28,7 @@ export function renderizarProductos(categoria) {
            data-precio="${p.precio}">
 
         <div class="card-img-wrapper">
-          <img src="${p.imagen}" class="card-img-top img-producto">
+          <img src="${BASE_URL}${p.imagen}" class="card-img-top img-producto">
 
           <div class="card-overlay">
             <button class="btn btn-light btn-sm btn-ver">
