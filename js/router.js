@@ -1,5 +1,7 @@
-import { renderizarProductos, irAPagina, activarCards, activarNavegacion, cargarCarrito, renderizarCarrito, mostrarFormularioPago } from "./index.js";
-import { productos } from "./productos.js";
+let productos = [];
+
+import { renderizarProductos, irAPagina, activarCards, activarNavegacion, cargarCarrito, renderizarCarrito, mostrarFormularioPago, cargarProductos } from "./index.js";
+
 
 //activación de la página
 export async function cargarPagina(ruta){
@@ -49,10 +51,12 @@ export async function cargarPagina(ruta){
   const botonVaciar = document.getElementById("vaciar-carrito");
   if (botonVaciar) {
     botonVaciar.addEventListener("click", () => {
-      carrito = [];
-      guardarEnStorage();
-      renderizarCarrito();
-      actualizarContador();
+      //carrito = [];
+      //guardarEnStorage();
+      //renderizarCarrito();
+      //actualizarContador();
+      localStorage.removeItem("carrito");
+      cargarCarrito();
     });
   }
     

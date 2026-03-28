@@ -1,6 +1,19 @@
-import { productos } from "./productos.js";
+let productos = [];
 import { cargarPagina, activarRouter } from "./router.js";
 
+export async function cargarProductos() {
+  try {
+    const response = await fetch(`${BASE_URL}data/productos.json`);
+    productos = await response.json();
+  } catch (error) {
+    console.error("Error cargando productos:", error);
+  }
+}
+
+const BASE_URL = location.hostname.includes("github.io")
+  ? "/TuRepositorio/"
+  : "";
+  
 export function renderizarProductos(categoria) {
   const contenedor = document.getElementById("contenedor-productos");
 
@@ -74,8 +87,8 @@ window.addEventListener("popstate", () => {
 
 async function cargarComponentes() {
 
-  const navbar = await fetch("../componentes/navbar.html");
-  const footer = await fetch("../componentes/footer.html");
+  const navbar = await fetch(`${BASE_URL}componentes/navbar.html`);
+  const footer = await fetch(`${BASE_URL}componentes/footer.html`);
 
   document.getElementById("navbar-container").innerHTML = await navbar.text();
   document.getElementById("footer-container").innerHTML = await footer.text();
@@ -405,6 +418,7 @@ function mostrarModalFinal() {
 document.addEventListener("DOMContentLoaded", async () => {
 
   await cargarComponentes();
+  await cargarProductos();
 
   activarRouter();
 
