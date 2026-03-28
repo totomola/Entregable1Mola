@@ -1,6 +1,16 @@
 let productos = [];
 
-import { renderizarProductos, irAPagina, activarCards, activarNavegacion, cargarCarrito, renderizarCarrito, mostrarFormularioPago, cargarProductos } from "./index.js";
+import {
+  renderizarProductos,
+  irAPagina,
+  activarCards,
+  activarNavegacion,
+  cargarCarrito,
+  renderizarCarrito,
+  mostrarFormularioPago,
+  cargarProductos,
+  BASE_URL,
+} from "./index.js";
 
 
 //activación de la página
