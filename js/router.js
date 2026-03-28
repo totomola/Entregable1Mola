@@ -19,14 +19,14 @@ export async function cargarPagina(ruta){
     "/tobilleras": "/pages/tobilleras.html",
     "/anillos": "/pages/anillos.html",
     "/combos": "/pages/combos.html", 
-    "/carrito": "pages/carrito.html"
+    "/carrito": "/pages/carrito.html"
   };
   
-  const pagina = rutas[ruta] || "pages/index.html";
+  const pagina = rutas[ruta] || "/pages/index.html";
   
   app.classList.add("page-hidden");
 
-  const response = await fetch(pagina);
+  const response = await fetch(`${BASE_URL}${pagina}`);
   const html = await response.text();
 
 

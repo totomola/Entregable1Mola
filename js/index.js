@@ -11,7 +11,7 @@ export async function cargarProductos() {
 }
 
 const BASE_URL = location.hostname.includes("github.io")
-  ? "/TuRepositorio/"
+  ? "/Entregable1Mola/"
   : "";
   
 export function renderizarProductos(categoria) {
