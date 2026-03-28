@@ -10,7 +10,7 @@ export async function cargarProductos() {
   }
 }
 
-const BASE_URL = location.hostname.includes("github.io")
+ export const BASE_URL = location.hostname.includes("github.io")
   ? "/Entregable1Mola/"
   : "";
   
