@@ -12,7 +12,7 @@ export async function cargarProductos() {
 
  export const BASE_URL = location.hostname.includes("github.io")
   ? "/Entregable1Mola/"
-  : "";
+  : "/";
   
 export function renderizarProductos(categoria) {
   const contenedor = document.getElementById("contenedor-productos");
@@ -120,7 +120,7 @@ function calcularTotal() {
       <div class="d-flex align-items-center justify-content-between bg-carrito" style="gap:1rem;">
         
         <div class="d-flex align-items-center ">
-          <img src="${producto.imagen}" 
+          <img src="${BASE_URL}${producto.imagen}" 
           style="width:10rem; height:10rem; object-fit:cover; border-radius: 0.1rem; ">
 
           <div class="ms-4" style="min-width: 10rem;">
@@ -411,7 +411,7 @@ function mostrarModalFinal() {
     localStorage.removeItem("carrito");
     carrito = [];
 
-    window.location.href = "/index.html";
+    window.location.href = `${BASE_URL}index.html`;
   });
 }
 

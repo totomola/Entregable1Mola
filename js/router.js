@@ -32,7 +32,7 @@ export async function cargarPagina(ruta){
     "/carrito": "pages/carrito.html"
   };
   
-  const pagina = rutas[ruta] || "/pages/index.html";
+  const pagina = rutas[ruta] || "pages/index.html";
   
   app.classList.add("page-hidden");
 
@@ -73,7 +73,17 @@ export async function cargarPagina(ruta){
     const botonComprar = document.getElementById("comprar");
   if (botonComprar) {
     botonComprar.addEventListener("click", () => {
-      if (carrito.length === 0) return;
+      const carritoStorage = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      if (carritoStorage.length === 0) {
+        Swal.fire({
+        icon: 'info',
+        title: 'Carrito vacío',
+        text: 'Agregá productos antes de comprar'
+        });
+        return;
+      }
+
       const modal = new bootstrap.Modal(document.getElementById("modalCompra"));
       modal.show();
     });
