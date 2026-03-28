@@ -4,552 +4,551 @@
         "categoria": "anillos",
         "nombre": "Anillo Plata Ceros",
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_1.jpeg"
+        "imagen": "assets/img_anillos/anillos_1.jpeg"
     },
     {
         "id": 2,
         "categoria": "anillos",
         "nombre": "Anillo Plata Tiras", 
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_2.jpeg" 
+        "imagen": "assets/img_anillos/anillos_2.jpeg" 
     },
     {
         "id": 3,
         "categoria": "anillos",
         "nombre": "Anillo Plata Diamond",
         "precio": 30000,
-        "imagen": "/assets/img_anillos/anillos_3.jpeg"
+        "imagen": "assets/img_anillos/anillos_3.jpeg"
     },
     { 
         "id": 4,
         "categoria": "anillos",
         "nombre": "Anillo Plata Viking",
         "precio": 18000,
-        "imagen": "/assets/img_anillos/anillos_4.jpeg" 
+        "imagen": "assets/img_anillos/anillos_4.jpeg" 
     },
     { 
         "id": 5, 
         "categoria": "anillos",
         "nombre": "Anillo Plata Infinito",
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_5.jpeg"
+        "imagen": "assets/img_anillos/anillos_5.jpeg"
     },
     { 
         "id": 6,
         "categoria": "anillos",
         "nombre": "Anillo Plata Circulos",
         "precio": 25000,
-        "imagen": "/assets/img_anillos/anillos_6.jpeg"
+        "imagen": "assets/img_anillos/anillos_6.jpeg"
     },
     { 
         "id": 7,
         "categoria": "anillos",
         "nombre": "Anillo Plata Cordon Circulos",
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_7.jpeg"
+        "imagen": "assets/img_anillos/anillos_7.jpeg"
     },
     { 
         "id": 8,
         "categoria": "anillos",
         "nombre": "Anillo Plata Circulos Trenzados",
         "precio": 18000,
-        "imagen": "/assets/img_anillos/anillos_8.jpeg"
+        "imagen": "assets/img_anillos/anillos_8.jpeg"
     },
     { 
         "id": 9,
         "categoria": "anillos",
         "nombre": "Anillo Plata Alpaca",
         "precio": 17000,
-        "imagen": "/assets/img_anillos/anillos_9.jpeg"
+        "imagen": "assets/img_anillos/anillos_9.jpeg"
     },
     { 
         "id": 10,
         "categoria": "anillos",
         "nombre": "Anillo Plata Cordon",
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_10.jpeg"
+        "imagen": "assets/img_anillos/anillos_10.jpeg"
     },
     { 
         "id": 11,
         "categoria": "anillos",
         "nombre": "Anillo Plata Cordon Trenzado",
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_11.jpeg"
+        "imagen": "assets/img_anillos/anillos_11.jpeg"
     },
     { 
         "id": 12,
         "categoria": "anillos",
         "nombre": "Anillo Plata Cordon Trenzado Doble",
         "precio": 25000,
-        "imagen": "/assets/img_anillos/anillos_12.jpeg"
+        "imagen": "assets/img_anillos/anillos_12.jpeg"
     },
     { 
         "id": 13,
         "categoria": "anillos",
         "nombre": "Anillo Plata",
         "precio": 18000,
-        "imagen": "/assets/img_anillos/anillos_13.jpeg"
+        "imagen": "assets/img_anillos/anillos_13.jpeg"
     },
     { 
         "id": 14,
         "categoria": "anillos",
         "nombre": "Anillo Plata Centro Brillos Doble",
         "precio": 30000,
-        "imagen": "/assets/img_anillos/anillos_14.jpeg"
+        "imagen": "assets/img_anillos/anillos_14.jpeg"
     },
     { 
         "id": 15,
         "categoria": "anillos",
         "nombre": "Anillo Plata Aros Trenzados",
         "precio": 18000,
-        "imagen": "/assets/img_anillos/anillos_15.jpeg"
+        "imagen": "assets/img_anillos/anillos_15.jpeg"
     },
     { 
         "id": 16,
         "categoria": "anillos",
         "nombre": "Anillo Plata Diamond",
         "precio": 25000,
-        "imagen": "/assets/img_anillos/anillos_16.jpeg"
+        "imagen": "assets/img_anillos/anillos_16.jpeg"
     },
     { 
         "id": 17,
         "categoria": "anillos",
         "nombre": "Anillo Plata Moño",
         "precio": 22000,
-        "imagen": "/assets/img_anillos/anillos_17.jpeg"
+        "imagen": "assets/img_anillos/anillos_17.jpeg"
     },
     { 
         "id": 18,
         "categoria": "anillos",
         "nombre": "Anillo Plata Alas",
         "precio": 20000,
-        "imagen": "/assets/img_anillos/anillos_18.jpeg"
+        "imagen": "assets/img_anillos/anillos_18.jpeg"
     },
     { 
         "id": 19,
         "categoria": "destacados",
         "nombre": "Aros",
         "precio": 8000,
-        "imagen": "/assets/img_destacados/aros.jpeg"
+        "imagen": "assets/img_destacados/aros.jpeg"
     },
     { 
         "id": 20,
         "categoria": "destacados",
         "nombre": "Collares",
         "precio": 10000,
-        "imagen": "/assets/img_destacados/collar.jpeg"
+        "imagen": "assets/img_destacados/collar.jpeg"
     },
     { 
         "id": 21,
         "categoria": "destacados",
         "nombre": "Pulseras",
         "precio": 6000,
-        "imagen": "/assets/img_destacados/pulsera.jpeg"
+        "imagen": "assets/img_destacados/pulsera.jpeg"
     },
     { 
         "id": 22,
         "categoria": "destacados",
         "nombre": "Tobilleras",
         "precio": 7000,
-        "imagen": "/assets/img_destacados/tobillera.jpeg"
+        "imagen": "assets/img_destacados/tobillera.jpeg"
     },
     { 
         "id": 23,
         "categoria": "destacados",
         "nombre": "Anillos",
         "precio": 10000,
-        "imagen": "/assets/img_destacados/anillo.jpeg"
+        "imagen": "assets/img_destacados/anillo.jpeg"
     },
     { 
         "id": 24,
         "categoria": "destacados",
         "nombre": "Combos",
         "precio": 20000,
-        "imagen": "/assets/img_destacados/aros_pulsera.jpeg"
+        "imagen": "assets/img_destacados/aros_pulsera.jpeg"
     },
     { 
         "id": 25,
         "categoria": "aros",
         "nombre": "Aros Cuadrados",
         "precio": 10000,
-        "imagen": "/assets/img_aros/aros_1.jpeg"
+        "imagen": "assets/img_aros/aros_1.jpeg"
     },
     { 
         "id": 26,
         "categoria": "aros",
         "nombre": "Aros Círculos con ranuras",
         "precio": 12000,
-        "imagen": "/assets/img_aros/aros_2.jpeg"
+        "imagen": "assets/img_aros/aros_2.jpeg"
     },
     { 
         "id": 27,
         "categoria": "aros",
         "nombre": "Aros Fantasia",
         "precio": 15000,
-        "imagen": "/assets/img_aros/aros_3.jpeg"
+        "imagen": "assets/img_aros/aros_3.jpeg"
     },
     { 
         "id": 28,
         "categoria": "aros",
         "nombre": "Aros Círculos con textura",
         "precio": 15000,
-        "imagen": "/assets/img_aros/aros_4.jpeg"
+        "imagen": "assets/img_aros/aros_4.jpeg"
     },
     { 
         "id": 29,
         "categoria": "aros",
         "nombre": "Aros Círculos con textura doble",
         "precio": 17000,
-        "imagen": "/assets/img_aros/aros_5.jpeg"
+        "imagen": "assets/img_aros/aros_5.jpeg"
     },
     { 
         "id": 30,
         "categoria": "aros",
         "nombre": "Aros Círculos con textura triple",
         "precio": 20000,
-        "imagen": "/assets/img_aros/aros_6.jpeg"
+        "imagen": "assets/img_aros/aros_6.jpeg"
     },
     { 
         "id": 31,
         "categoria": "aros",
         "nombre": "Aros Círculos con textura cuadruple",
         "precio": 25000,
-        "imagen": "/assets/img_aros/aros_7.jpeg"
+        "imagen": "assets/img_aros/aros_7.jpeg"
     },
     { 
         "id": 32,
         "categoria": "aros",
         "nombre": "Aros Círculos con textura quintuple",
         "precio": 30000,
-        "imagen": "/assets/img_aros/aros_8.jpeg"
+        "imagen": "assets/img_aros/aros_8.jpeg"
     },
     { 
         "id": 33,
         "categoria": "aros",
         "nombre": "Aros Infinito",
         "precio": 8000,
-        "imagen": "/assets/img_aros/aros_9.jpeg"
+        "imagen": "assets/img_aros/aros_9.jpeg"
     },
     { 
         "id": 34,
         "categoria": "aros",
         "nombre": "Aros Sirenas",
         "precio": 10000,
-        "imagen": "/assets/img_aros/aros_10.jpeg"
+        "imagen": "assets/img_aros/aros_10.jpeg"
     },
     { 
         "id": 35,
         "categoria": "aros",
         "nombre": "Aros Sirenas Plata",
         "precio": 12000,
-        "imagen": "/assets/img_aros/aros_11.jpeg"
+        "imagen": "assets/img_aros/aros_11.jpeg"
     },
     { 
         "id": 36,
         "categoria": "aros",
         "nombre": "Aros 3 tiras brillos",
         "precio": 16000,
-        "imagen": "/assets/img_aros/aros_12.jpeg"
+        "imagen": "assets/img_aros/aros_12.jpeg"
     },
     { 
         "id": 37,
         "categoria": "aros",
         "nombre": "Aros 4 tiras brillos",
         "precio": 17000,
-        "imagen": "/assets/img_aros/aros_13.jpeg"
+        "imagen": "assets/img_aros/aros_13.jpeg"
     },
     { 
         "id": 38,
         "categoria": "aros",
         "nombre": "Aros 5 tiras brillos",
         "precio": 20000,
-        "imagen": "/assets/img_aros/aros_14.jpeg"
+        "imagen": "assets/img_aros/aros_14.jpeg"
     },
     { 
         "id": 39,
         "categoria": "aros",
         "nombre": "Aros Péndulo brillos",
         "precio": 25000,
-        "imagen": "/assets/img_aros/aros_15.jpeg"
+        "imagen": "assets/img_aros/aros_15.jpeg"
     },
     { 
         "id": 40,
         "categoria": "aros",
         "nombre": "Aros 7 tiras brillos",
         "precio": 27000,
-        "imagen": "/assets/img_aros/aros_16.jpeg"
+        "imagen": "assets/img_aros/aros_16.jpeg"
     },
     { 
         "id": 41,
         "categoria": "aros",
         "nombre": "Aros pendientes brillos",
         "precio": 29000,
-        "imagen": "/assets/img_aros/aros_17.jpeg"
+        "imagen": "assets/img_aros/aros_17.jpeg"
     },
     { 
         "id": 42,
         "categoria": "aros",
         "nombre": "Aros 9 tiras brillos",
         "precio": 30000,
-        "imagen": "/assets/img_aros/aros_18.jpeg"
+        "imagen": "assets/img_aros/aros_18.jpeg"
     },
     { 
         "id": 43,
         "categoria": "aros",
         "nombre": "Aros Alas Angel",
         "precio": 8000,
-        "imagen": "/assets/img_aros/aros_19.jpeg"
+        "imagen": "assets/img_aros/aros_19.jpeg"
     },
     { 
         "id": 44,
         "categoria": "collares",
         "nombre": "Collar Corazón",
         "precio": 35000,
-        "imagen": "/assets/img_collares/collares_1.jpeg"
+        "imagen": "assets/img_collares/collares_1.jpeg"
     },
     { 
         "id": 49, 
         "categoria": "collares",
         "nombre": "Collar Aro texturado",
         "precio": 35000, 
-        "imagen": "/assets/img_collares/collares_6.jpeg"
+        "imagen": "assets/img_collares/collares_6.jpeg"
     },
     { 
         "id": 50,
         "categoria": "collares",
         "nombre": "Collar circulo Indio",
         "precio": 35000,
-        "imagen": "/assets/img_collares/collares_7.jpeg" 
+        "imagen": "assets/img_collares/collares_7.jpeg" 
     },
     { 
         "id": 51,
         "categoria": "collares",
         "nombre": "Collar Garabato",
         "precio": 30000,
-        "imagen": "/assets/img_collares/collares_9.jpeg"
+        "imagen": "assets/img_collares/collares_9.jpeg"
     },
     { 
         "id": 52,
         "categoria": "collares",
         "nombre": "Collar Pañuelo",
         "precio": 28000,
-        "imagen": "/assets/img_collares/collares_10.jpeg"
+        "imagen": "assets/img_collares/collares_10.jpeg"
     },
     { 
         "id": 53,
         "categoria": "collares",
         "nombre": "Collar Purpura",
         "precio": 26000,
-        "imagen": "/assets/img_collares/collares_11.jpeg"
+        "imagen": "assets/img_collares/collares_11.jpeg"
     },
     { 
         "id": 54,
         "categoria": "collares",
         "nombre": "Collar Oro",
         "precio": 32000,
-        "imagen": "/assets/img_collares/collares_12.jpeg"
+        "imagen": "assets/img_collares/collares_12.jpeg"
     },
     { 
         "id": 55,
         "categoria": "collares",
         "nombre": "Collar Padre Nuestro Grabado",
         "precio": 35000,
-        "imagen": "/assets/img_collares/collares_13.jpeg"
+        "imagen": "assets/img_collares/collares_13.jpeg"
     },
     { 
         "id": 56,
         "categoria": "combos",
         "nombre": "Combo Perlas",
         "precio": 40000,
-        "imagen": "/assets/img_combos/combos_1.jpeg"
+        "imagen": "assets/img_combos/combos_1.jpeg"
     },
     { 
         "id": 57,
         "categoria": "combos",
         "nombre": "Combo Cadenas con Perlas",
         "precio": 45000,
-        "imagen": "/assets/img_combos/combos_2.jpeg"
+        "imagen": "assets/img_combos/combos_2.jpeg"
     },
     { 
         "id": 58,
         "categoria": "combos",
         "nombre": "Combo 3 perlas",
         "precio": 50000,
-        "imagen": "/assets/img_combos/combos_3.jpeg"
+        "imagen": "assets/img_combos/combos_3.jpeg"
     },
     { 
         "id": 59,
         "categoria": "combos",
         "nombre": "Combo Cadena ",
         "precio": 45000,
-        "imagen": "/assets/img_combos/combos_4.jpeg"
+        "imagen": "assets/img_combos/combos_4.jpeg"
     },
     { 
         "id": 60,
         "categoria": "combos",
         "nombre": "Combo Estrellas",
         "precio": 55000,
-        "imagen": "/assets/img_combos/combos_5.jpeg"
+        "imagen": "assets/img_combos/combos_5.jpeg"
     },
     { 
         "id": 61,
         "categoria": "pulseras",
         "nombre": " White and Black",
         "precio": 10000,
-        "imagen": "/assets/img_pulseras/pulseras_1.jpeg"
+        "imagen": "assets/img_pulseras/pulseras_1.jpeg"
     },
     { 
         "id": 62,
         "categoria": "pulseras",
         "nombre": "Pulsera Brillos Black",
         "precio": 9000,
-        "imagen": "/assets/img_pulseras/pulseras_2.jpeg"
+        "imagen": "assets/img_pulseras/pulseras_2.jpeg"
     },
     {
         "id": 63,
         "categoria": "pulseras",
         "nombre": "Pulsera Brillo trenza",
         "precio": 12000,
-        "imagen": "/assets/img_pulseras/pulseras_3.jpeg"
+        "imagen": "assets/img_pulseras/pulseras_3.jpeg"
     },
     { 
         "id": 64,
         "categoria": "pulseras",
         "nombre": "Pulsera Brillo Full White", 
         "precio": 14000,
-        "imagen": "/assets/img_pulseras/pulseras_4.jpeg"
+        "imagen": "assets/img_pulseras/pulseras_4.jpeg"
     },
     { 
         "id": 65,
         "categoria": "pulseras",
         "nombre": "Pulsera Brillo borde",
         "precio": 10000,
-        "imagen": "/assets/img_pulseras/pulseras_5.jpeg" 
+        "imagen": "assets/img_pulseras/pulseras_5.jpeg" 
     },
     { 
         "id": 66,
         "categoria": "pulseras",
         "nombre": "Pulsera Brillo Cordon",
         "precio": 11000,
-        "imagen": "/assets/img_pulseras/pulseras_6.jpeg" 
+        "imagen": "assets/img_pulseras/pulseras_6.jpeg" 
     },
     { 
         "id": 67, 
         "categoria": "pulseras",
         "nombre": "Pulsera Brillo Total white",
         "precio": 12000,
-        "imagen": "/assets/img_pulseras/pulseras_7.jpeg" 
+        "imagen": "assets/img_pulseras/pulseras_7.jpeg" 
     },
     { 
         "id": 68,
         "categoria": "pulseras",
         "nombre": "Pulsera Brillo Cordon Perlas",
         "precio": 12000,
-        "imagen": "/assets/img_pulseras/pulseras_8.jpeg" 
+        "imagen": "assets/img_pulseras/pulseras_8.jpeg" 
     },
     { 
         "id": 69, 
         "categoria": "pulseras", 
         "nombre": "Pulsera Plata Delice",  
         "precio": 15000,
-        "imagen": "/assets/img_pulseras/pulseras_9.jpeg" 
+        "imagen": "assets/img_pulseras/pulseras_9.jpeg" 
     },
     { 
         "id": 70,
         "categoria":"pulseras",
         "nombre": "Pulsera Plata Perla Delice",
-        "precio": 15000,
-        "imagen": "/assets/img_pulseras/pulseras_10.jpeg"
+        "precio": "assets/img_pulseras/pulseras_10.jpeg"
     },
     { 
         "id": 71, 
         "categoria": "pulseras",
         "nombre": "Pulsera Plata Delice simple",
         "precio": 15000,
-        "imagen": "/assets/img_pulseras/pulseras_11.jpeg" 
+        "imagen": "assets/img_pulseras/pulseras_11.jpeg" 
     },
     { 
         "id": 72,
         "categoria": "pulseras",
         "nombre": "Pulsera Pharaon",
         "precio": 20000,
-        "imagen": "/assets/img_pulseras/pulseras_12.jpeg"
+        "imagen": "assets/img_pulseras/pulseras_12.jpeg"
     },
     {
         "id": 73,
         "categoria": "tobilleras",
         "nombre": "Tobillera Color",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_1.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_1.jpeg"
     },
     { 
         "id": 74,
         "categoria": "tobilleras",
         "nombre": "Tobillera Black",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_2.jpeg" 
+        "imagen": "assets/img_tobilleras/tobilleras_2.jpeg" 
     },
     { 
         "id": 75,
         "categoria": "tobilleras",
         "nombre": "Tobillera white",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_3.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_3.jpeg"
     },
     { 
         "id": 76,
         "categoria": "tobilleras",
         "nombre": "Tobillera Grey",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_4.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_4.jpeg"
     },
     { 
         "id": 77,
         "categoria": "tobilleras",
         "nombre": "Tobillera Grey Space",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_5.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_5.jpeg"
     },
     {
         "id": 78,
         "categoria": "tobilleras",
         "nombre": "Tobillera Cold",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_6.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_6.jpeg"
     },
     { 
         "id": 79,
         "categoria": "tobilleras",
         "nombre": "Tobillera Red",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_7.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_7.jpeg"
     },
     { 
         "id": 80,
         "categoria": "tobilleras",
         "nombre": "Tobillera Yellow",
         "precio": 8000,
-        "imagen": "/assets/img_tobilleras/tobilleras_8.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_8.jpeg"
     },
     { 
         "id": 81,
         "categoria": "tobilleras",
         "nombre": "Tobillera Delice",
         "precio": 12000,
-        "imagen": "/assets/img_tobilleras/tobilleras_9.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_9.jpeg"
     },
     { 
         "id": 82,
         "categoria": "tobilleras",
         "nombre": "Tobillera Perla Delice",
         "precio": 12000,
-        "imagen": "/assets/img_tobilleras/tobilleras_10.jpeg"
+        "imagen": "assets/img_tobilleras/tobilleras_10.jpeg"
     },
     { 
         "id": 83,
         "categoria": "tobilleras",
         "nombre": "Tobillera Plata Delice doble",
         "precio": 15000,
-        "imagen": "/assets/img_tobilleras/tobilleras_11.jpeg" 
+        "imagen": "assets/img_tobilleras/tobilleras_11.jpeg" 
     }
 ]   
