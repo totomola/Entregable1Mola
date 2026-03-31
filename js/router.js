@@ -61,10 +61,6 @@ export async function cargarPagina(ruta){
   const botonVaciar = document.getElementById("vaciar-carrito");
   if (botonVaciar) {
     botonVaciar.addEventListener("click", () => {
-      //carrito = [];
-      //guardarEnStorage();
-      //renderizarCarrito();
-      //actualizarContador();
       localStorage.removeItem("carrito");
       cargarCarrito();
     });
